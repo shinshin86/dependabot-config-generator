@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 const yaml = require('js-yaml');
 const cliSelect = require('cli-select');
 const chalk = require('chalk');
