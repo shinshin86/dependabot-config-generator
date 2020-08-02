@@ -13,7 +13,8 @@
     "dependabot",
     "config",
     "generator",
-    "cli"
+    "cli",
+    "simple"
   ],
   "author": "shinshin86 <shinshin86npm@gmail.com> (https://github.com/shinshin86)",
   "license": "MIT",

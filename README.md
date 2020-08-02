@@ -7,9 +7,9 @@ This CLI tool requires a Node.js version of 10 or higher.
 ## Install
 
 ```bash
-npm install -g shinshin86/dependabot-config-generator
+npm install -g dependabot-config-generator
 # or
-yarn global add shinshin86/dependabot-config-generator
+yarn global add dependabot-config-generator
 ```
 
 ## Usage
