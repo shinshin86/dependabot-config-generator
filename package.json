@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "CLI tool for Dependabot config generate.",
   "main": "index.js",
+  "bin": {
+    "dependabot-config-generator": "index.js"
+  },
   "scripts": {
     "fmt": "prettier --write '**/*.{js,json,md}'"
   },
