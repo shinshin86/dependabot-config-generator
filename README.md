@@ -18,7 +18,11 @@ yarn global add shinshin86/dependabot-config-generator
 dependabot-config-generator
 ```
 
-Generate a configuration file for "Dependabot".
+### GIF
+
+![dependabot-config-generator demo gif](./gif/dependabot-config-generator-demo.gif)
+
+Generate a configuration of "Dependabot".
 
 Example:
 
