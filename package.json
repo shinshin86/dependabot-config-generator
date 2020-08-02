@@ -1,0 +1,40 @@
+{
+  "name": "dependabot-config-generator",
+  "version": "0.1.0",
+  "description": "CLI tool for Dependabot config generate.",
+  "main": "index.js",
+  "scripts": {
+    "fmt": "prettier --write '**/*.{js,json,md}'"
+  },
+  "keywords": [
+    "dependabot",
+    "config",
+    "generator",
+    "cli"
+  ],
+  "author": "shinshin86 <shinshin86npm@gmail.com> (https://github.com/shinshin86)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shinshin86/dependabot-config-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shinshin86/dependabot-config-generator/issues"
+  },
+  "homepage": "https://github.com/shinshin86/dependabot-config-generator#readme",
+  "engines": {
+    "node": ">= 10"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "cli-select": "^1.1.2",
+    "js-yaml": "^3.14.0",
+    "prompts": "^2.3.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  },
+  "prettier": {
+    "singleQuote": true
+  }
+}
