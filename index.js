@@ -78,8 +78,17 @@ const packageManegerList = [
   'elm',
 ];
 
-// TODO: "live" support
 const updateScheduleList = ['daily', 'weekly', 'monthly'];
+
+const liveSupportingPackageManegerList = [
+  'javascript',
+  'ruby:bundler',
+  'python',
+  'php:composer',
+  'dotnet:nuget',
+  'rust:cargo',
+  'elixir:hex',
+];
 
 const updateTypeList = [
   'security:patch',
@@ -113,6 +122,10 @@ const displaySelectedText = (value) => {
     initial: '/',
     validate: (value) => (!value ? 'This setting is required.' : true),
   });
+
+  if (liveSupportingPackageManegerList.includes(packageManeger)) {
+    updateScheduleList.push('live');
+  }
 
   const { value: updateSchedule } = await cliSelect({
     values: updateScheduleList,
