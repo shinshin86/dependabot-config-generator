@@ -1,14 +1,22 @@
-# dependabot-config-generator (WIP)
+# dependabot-config-generator
 
 CLI tool for [Dependabot config](https://dependabot.com/docs/config-file/) generate.
 
+This CLI tool requires a Node.js version of 10 or higher.
+
 ## Install
 
-TODO
+```bash
+npm install -g shinshin86/dependabot-config-generator
+# or
+yarn global add shinshin86/dependabot-config-generator
+```
 
 ## Usage
 
-TODO
+```bash
+dependabot-config-generator
+```
 
 Generate a configuration file for "Dependabot".
 
@@ -25,3 +33,8 @@ update_configs:
           dependency_type: all
           update_type: 'semver:minor'
 ```
+
+## Future Plans
+
+Only required items are supported.
+I want this tool to be simple, so I'm thinking of implementing the other settings as optional features.
