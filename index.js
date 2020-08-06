@@ -7,9 +7,16 @@ const {
   inputUpdateSchedule,
   inputUpdateTyep,
   inputOutputType,
+  inputTargetBranch,
+  inputDefaultReviewers,
+  inputDefaultAssignees,
+  inputDefaultLabels,
+  inputDefaultMilestone,
 } = require('./cli-inputs');
 
 (async () => {
+  const isAdvancedOption = process.argv[2] === 'advanced';
+
   const packageManager = await inputPackageManager();
 
   const directory = await inputDirectory();
@@ -22,11 +29,35 @@ const {
 
   const isTerminalOutput = outputType === 'terminal';
 
-  generate(
+  let targetBranch;
+  let defaultReviewers;
+  let defaultAssignees;
+  let defaultLabels;
+  let defaultMilestone;
+  if (isAdvancedOption) {
+    targetBranch = await inputTargetBranch();
+    defaultReviewers = await inputDefaultReviewers();
+    defaultAssignees = await inputDefaultAssignees();
+    defaultLabels = await inputDefaultLabels();
+    defaultMilestone = await inputDefaultMilestone();
+
+    // TODO:
+    // const allowedUpdates = await inputAllowedUpdates();
+    // const ignoreUpdates = await inputIgnoreUpdates();
+    // const versionRequirementsUpdates =  await inputVersionRequirementsUpdates();
+    // const commitMessage = await inputCommitMessage();
+  }
+
+  generate({
     packageManager,
     directory,
     updateSchedule,
     updateType,
-    isTerminalOutput
-  );
+    targetBranch,
+    defaultReviewers,
+    defaultAssignees,
+    defaultLabels,
+    defaultMilestone,
+    isTerminalOutput,
+  });
 })();

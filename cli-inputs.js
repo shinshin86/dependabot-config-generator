@@ -121,10 +121,78 @@ const inputOutputType = async () => {
   return outputType;
 };
 
+const inputTargetBranch = async () => {
+  const { targetBranch } = await prompts({
+    type: 'text',
+    name: 'targetBranch',
+    message: 'Branch to create pull requests against.',
+    initial: 'master',
+    validate: (value) => (!value ? 'Please enter a branch name.' : true),
+  });
+
+  return targetBranch;
+};
+
+const inputDefaultReviewers = async () => {
+  const { defaultReviewers } = await prompts({
+    type: 'text',
+    name: 'defaultReviewers',
+    message:
+      'Reviewers to set on update pull requests. (If you are using multiple labels, please separate them by commas.)',
+    initial: '',
+    validate: (value) => (!value ? 'Please enter a default reviewers.' : true),
+  });
+
+  return defaultReviewers;
+};
+
+const inputDefaultAssignees = async () => {
+  const { defaultAssignees } = await prompts({
+    type: 'text',
+    name: 'defaultAssignees',
+    message:
+      'Assignees to set on update pull requests. (If you are using multiple labels, please separate them by commas.)',
+    initial: '',
+    validate: (value) => (!value ? 'Please enter a default assignees.' : true),
+  });
+
+  return defaultAssignees;
+};
+
+const inputDefaultLabels = async () => {
+  const { defaultLabels } = await prompts({
+    type: 'text',
+    name: 'defaultLabels',
+    message:
+      'Labels to set on update pull requests. (If you are using multiple labels, please separate them by commas.)',
+    initial: '',
+    validate: (value) => (!value ? 'Please enter a default labels.' : true),
+  });
+
+  return defaultLabels;
+};
+
+const inputDefaultMilestone = async () => {
+  const { defaultMilestone } = await prompts({
+    type: 'text',
+    name: 'defaultMilestone',
+    message: 'Milestone to set on dependency update pull requests.',
+    initial: '',
+    validate: (value) => (!value ? 'Please enter a defaultMilestone.' : true),
+  });
+
+  return defaultMilestone;
+};
+
 module.exports = {
   inputPackageManager,
   inputDirectory,
   inputUpdateSchedule,
   inputUpdateTyep,
   inputOutputType,
+  inputTargetBranch,
+  inputDefaultReviewers,
+  inputDefaultAssignees,
+  inputDefaultLabels,
+  inputDefaultMilestone,
 };

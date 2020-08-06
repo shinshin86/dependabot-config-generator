@@ -21,13 +21,18 @@ const generateConfigFile = async (configObj) => {
   return;
 };
 
-module.exports.generate = async (
-  packageManeger,
+module.exports.generate = async ({
+  packageManager,
   directory,
   updateSchedule,
   updateType,
-  isTerminalOutput
-) => {
+  targetBranch,
+  defaultReviewers,
+  defaultAssignees,
+  defaultLabels,
+  defaultMilestone,
+  isTerminalOutput,
+}) => {
   const version = 1;
 
   const automerged_updates = [
@@ -41,12 +46,32 @@ module.exports.generate = async (
 
   const update_configs = [
     {
-      package_manager: packageManeger,
+      package_manager: packageManager,
       directory,
       update_schedule: updateSchedule,
       automerged_updates,
     },
   ];
+
+  if (targetBranch) {
+    update_configs[0].target_branch = targetBranch;
+  }
+
+  if (defaultReviewers) {
+    update_configs[0].default_reviewers = defaultReviewers.split(',');
+  }
+
+  if (defaultAssignees) {
+    update_configs[0].default_assignees = defaultAssignees.split(',');
+  }
+
+  if (defaultLabels) {
+    update_configs[0].default_labels = defaultLabels.split(',');
+  }
+
+  if (defaultMilestone) {
+    update_configs[0].default_milestone = defaultMilestone;
+  }
 
   const configObj = { version, update_configs };
 
